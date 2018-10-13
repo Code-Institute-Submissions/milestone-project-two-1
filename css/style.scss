@@ -1,0 +1,133 @@
+$black: rgba(0, 0, 0, 1);
+
+/*--------------------------------------- Page elements */
+body {
+  text-align: center;
+}
+
+.header{
+    padding-top: 50px;
+}
+
+
+/*--------------------------------------- Mixins for Simon */
+
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/*--------------------------------------- Simon Game parts*/
+
+/*--- Outer Circle */
+
+#simon-game {
+  --circle: 510px;
+  padding: 5px;
+  border-radius: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background: $black;
+  height: var(--circle);
+  width: var(--circle);
+    @include center;  
+}
+
+/*--- Game buttons */
+
+.button {
+  --gameButton: 250px;
+  border: 5px solid $black;
+  cursor: pointer;
+  height: var(--gameButton);
+  width: var(--gameButton);
+}
+
+.button:focus {
+  outline: none;
+}
+
+#red {
+  background: red;
+  border-top-left-radius: 100%;
+}
+
+#blue {
+  background: blue;
+  border-top-right-radius: 100%;
+}
+
+#yellow {
+  background: yellow;
+  border-bottom-left-radius: 100%;
+}
+
+#green {
+  background: green;
+  border-bottom-right-radius: 100%;
+}
+
+
+/*-- Inner Circle */
+#displayText {
+  opacity: 0.3;
+}
+
+.controls {
+  --circle: 260px;
+  padding: 15px;
+  border-radius: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background: $black;
+  height: var(--circle);
+  width: var(--circle);
+    @include center;
+}
+
+/*-- Inner Circle */
+
+#on {
+  height: 50px;
+  width: 55px;
+  border-radius: 15%;
+  cursor: pointer;
+  cursor: hand;
+  outline: none;
+}
+
+#start {
+  height: 30px;
+  width: 55px;
+  border-radius: 15%;
+  cursor: pointer;
+  cursor: hand;
+  outline: none;
+}
+  
+#strict {
+  height: 30px;
+  width: 55px;
+  border-radius: 15%;
+  cursor: pointer;
+  cursor: hand;
+  outline: none;
+}
+
+#counter {
+  height: 40px;
+  width: 65px;
+  background: grey;
+  border-radius: 15%;
+  color: white;
+    @include center;
+}  
+
+
+
+/*# sourceMappingURL=style.scss.map */
