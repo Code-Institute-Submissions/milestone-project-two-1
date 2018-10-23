@@ -16,35 +16,28 @@ var red = document.querySelector("#red");
 var blue = document.querySelector("#blue");
 var yellow = document.querySelector("#yellow");
 var green = document.querySelector("#green");
-var onButton = document.querySelector("#on");
 var startButton = document.querySelector("#start");
 var strictButton = document.querySelector("#strict");
 
-
 // switches and controls //
 strictButton.addEventListener('click', (event) => {
-    if (strictButton.clicked == true) {
+    if (strictButton.onclick == true) {
         strict = true;
     } else {
         strict = false;
     }
 });
 
-onButton.addEventListener('click', (event) => {
-    if (onButton.clicked == true) {
-        powerOn = true;
-        counterOn.innerHTML = "-";
+
+startButton.addEventListener('click', (event) => {
+    if (startButton.onclick == true) {
+        startButton = true;
+        counterOn.innerHTML = "0";
     } else {
-        powerOn = false;
+        startButton = false;
         counterOn.innerHTML = "";
         clearColor();
         clearInterval(interval);
-    }
-});
-
-startButton.addEventListener('click', (event) => {
-    if (powerOn || win) {
-        play();
     }
 });
 
