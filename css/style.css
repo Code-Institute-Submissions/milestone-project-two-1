@@ -81,15 +81,6 @@ body {
 }
 
 /*-- Inner Circle */
-#on {
-  height: 50px;
-  width: 55px;
-  border-radius: 15%;
-  cursor: pointer;
-  cursor: hand;
-  outline: none;
-}
-
 #start {
   height: 30px;
   width: 55px;

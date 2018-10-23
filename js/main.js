@@ -1,45 +1,55 @@
-var gameSequence = []; // order of buttons clicked 
+var gameSequence = []; // order of buttons clicked by game 
 var playerSequence = []; // order of buttons clicked by player 
-var flashColor;  // number of times game flashes 
+var flashColor;  // number of times button flashes 
 var rounds;  // what round player is on 
-var correct;  // if player is on the right track or not 
+var correct;  // if player is correct
 var interval;
-var simonTurn;  // boolean true or false - if simon's turn or player's turn 
-var strict = false; // if button has been pressed - starts at false 
+var simonTurn;  // if simon's turn
+var strict = false;  
 var sound = true;
-var powerOn = false; // if power has been switched on - starts at false //
+var on = false;
+var powerOn = false; // if on button pressed
 var win; // player has won 
 
- // pass in css selector with ID tag 
+ // pass in css selector with ID tag idea to use it was here: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_document_queryselector_p
 var counterOn = document.querySelector("#counter");
 var red = document.querySelector("#red");
 var blue = document.querySelector("#blue");
 var yellow = document.querySelector("#yellow");
 var green = document.querySelector("#green");
+var onButton = document.querySelector("#on");
 var startButton = document.querySelector("#start");
 var strictButton = document.querySelector("#strict");
 
-// switches and controls //
-strictButton.addEventListener('click', (event) => {
-    if (strictButton.onclick == true) {
-        strict = true;
-    } else {
-        strict = false;
-    }
-});
 
+// switches and controls //
+
+onButton.addEventListener('click', (event) => {
+  if (onButton.checked == true) {
+    on = true;
+    counterOn.innerHTML = "0";
+  } else {
+    on = false;
+    counterOn.innerHTML = "";
+    clearColor();
+    clearInterval(interval);
+  }
+});
 
 startButton.addEventListener('click', (event) => {
-    if (startButton.onclick == true) {
-        startButton = true;
-        counterOn.innerHTML = "0";
-    } else {
-        startButton = false;
-        counterOn.innerHTML = "";
-        clearColor();
-        clearInterval(interval);
-    }
+  if (on || win) {
+    play();
+  }
 });
+
+strictButton.addEventListener('click', (event) => {
+  if (strictButton.checked == true) {
+    strict = true;
+  } else {
+    strict = false;
+  }
+});
+
 
 // functions //
 function play() {
