@@ -1,3 +1,4 @@
+$(document).ready(function(){ 
 var gameSequence = []; // order of buttons clicked by game 
 var playerSequence = []; // order of buttons clicked by player 
 var flashColor;  // number of times button flashes 
@@ -11,44 +12,33 @@ var on = false;
 var powerOn = false; // if on button pressed
 var win; // player has won 
 
- // pass in css selector with ID tag idea to use it was here: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_document_queryselector_p
-var counterOn = document.querySelector("#counter");
-var red = document.querySelector("#red");
-var blue = document.querySelector("#blue");
-var yellow = document.querySelector("#yellow");
-var green = document.querySelector("#green");
-var onButton = document.querySelector("#on");
-var startButton = document.querySelector("#start");
-var strictButton = document.querySelector("#strict");
+//pass in jquery id selectors
+var counterOn = $("#counter");
+var red = $("#red");
+var blue = $("#blue");
+var yellow = $("#yellow");
+var green = $("#green");
+var onButton = $("#on");
+var startButton = $("#start");
+var strictButton = $("#strict");
 
 
 // switches and controls //
 
-onButton.addEventListener('click', (event) => {
-  if (onButton.checked == true) {
-    on = true;
-    counterOn.innerHTML = "0";
-  } else {
-    on = false;
-    counterOn.innerHTML = "";
-    clearColor();
-    clearInterval(interval);
-  }
-});
-
-startButton.addEventListener('click', (event) => {
-  if (on || win) {
-    play();
-  }
-});
-
-strictButton.addEventListener('click', (event) => {
-  if (strictButton.checked == true) {
-    strict = true;
-  } else {
-    strict = false;
-  }
-});
+  $('#start').on('click', function() { // when the player clicks start
+    noButtons = false;
+    simonStart();    
+  });
+  
+  $('#strict').on('click', function (){ // when the player clicks strict
+    if (strict) {
+      strict = false;
+      $(this).removeClass('red-button');
+    } else {
+      strict = true;
+      $(this).addClass('red-button');
+    }
+  });
 
 
 // functions //
@@ -241,3 +231,4 @@ function winGame() {
     powerOn = false;
     win = true;
 }
+});
