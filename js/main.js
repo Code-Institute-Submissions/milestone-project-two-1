@@ -1,4 +1,5 @@
-$(document).ready(function(){ 
+/* global $ */
+$(function() {
 var gameSequence = []; // order of buttons clicked by game 
 var playerSequence = []; // order of buttons clicked by player 
 var flashColor;  // number of times button flashes 
@@ -24,13 +25,25 @@ var strictButton = $("#strict");
 
 
 // switches and controls //
+$("#on").click(function() {
+  if (!powerOn == true){
+    onButton = true;
+    counterOn.html("0");
+  } else {
+    onButton = false;
+    counterOn.html("--");
+    clearColor();
+    clearInterval(interval);
+  }
+});
 
-  $('#start').on('click', function() { // when the player clicks start
-    noButtons = false;
-    simonStart();    
-  });
+$("#start").click(function() {
+  if (on || win) {
+    play();
+  }
+});  
   
-  $('#strict').on('click', function (){ // when the player clicks strict
+  $('#strict').click(function() { // when the player clicks strict
     if (strict) {
       strict = false;
       $(this).removeClass('red-button');
