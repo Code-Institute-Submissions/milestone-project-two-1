@@ -24,21 +24,12 @@ var strictButton = $("#strict");
 
 
 // switches and controls //
-$('#strict').on('click', function() {
-  if (strictButton == true) {
-    strict = true;
-  } else {
-    strict = false;
-  }
-});
-
 $('#on').on('click', function() {
-  if (onButton == true) {
-    on = true;
-    counterOn.innerHTML = "0";
+  if (!onButton == true) {
+    counterOn.html("0");
   } else {
-    on = false;
-    counterOn.innerHTML = "";
+    onButton = false;
+    counterOn.html("--");
     clearColor();
     clearInterval(interval);
   }
@@ -50,6 +41,15 @@ $('#start').on('click', function() {
   }
 });
 
+$('#strict').on('click', function() {
+  if (strictButton == true) {
+    strict = true;
+  } else {
+    strict = false;
+  }
+});
+
+
 
 // functions //
 function play() {
@@ -59,7 +59,7 @@ function play() {
     flashColor = 0;
     interval = 0;
     rounds = 1;
-    counterOn.innerHTML = 1;
+    counterOn.html("1");
     correct = true;
     for (var i = 0; i < 20; i++) {
         gameSequence.push(Math.floor(Math.random() * 4) + 1);
@@ -96,7 +96,7 @@ function one() {
         audio.play();
     }
     sound = true;
-    $(".red").css("background-color", "red");
+    $(".red").css("opacity", "1");
 }
 
 function two() {
@@ -105,7 +105,7 @@ function two() {
         audio.play();
     }
     sound = true;
-    $(".blue").css("background-color", "blue");
+    $(".blue").css("opacity", "1");
 }
 
 function three() {
@@ -114,7 +114,7 @@ function three() {
         audio.play();
     }
     sound = true;
-    $(".yellow").css("background-color", "yellow");
+    $(".yellow").css("opacity", "1");
 }
 
 function four() {
@@ -123,25 +123,25 @@ function four() {
         audio.play();
     }
     sound = true;
-    $(".green").css("background-color", "green");
+    $(".green").css("opacity", "1");
 }
 
 function clearColor() {
-    red.style.backgroundColor = "red";
-    blue.style.backgroundColor = "blue";
-    yellow.style.backgroundColor = "yellow";
-    green.style.backgroundColor = "green";
+    $(".red").css("background-color", "red");
+    $(".blue").css("background-color", "blue");
+    $(".yellow").css("background-color", "yellow");
+    $(".green").css("background-color", "green");
 }
 
 function gameFlash() {
-    red.style.backgroundColor = "OrangeRed";
-    blue.style.backgroundColor = "Aqua";
-    yellow.style.backgroundColor = "LemonChiffon";
-    green.style.backgroundColor = "GreenYellow";
+    $(".red").css("background-color", "red").style.opacity = "0.5";
+    $(".blue").css("background-color", "blue").style.opacity = "0.5";
+    $(".yellow").css("background-color", "yellow").style.opacity = "0.5";
+    $(".green").css("background-color", "green").style.opacity = "0.5";
 }
 
 // events //
-red.addEventListener('click', (event) => {
+$('#red').on('click', function() {
     if (powerOn) {
         playerSequence.push(1);
         confirm();
@@ -154,7 +154,7 @@ red.addEventListener('click', (event) => {
     }
 });
 
-blue.addEventListener('click', (event) => {
+$('#blue').on('click', function() {
     if (powerOn) {
         playerSequence.push(2);
         confirm();
@@ -168,7 +168,7 @@ blue.addEventListener('click', (event) => {
     }
 });
 
-yellow.addEventListener('click', (event) => {
+$('#yellow').on('click', function() {
     if (powerOn) {
         playerSequence.push(3);
         confirm();
@@ -182,7 +182,7 @@ yellow.addEventListener('click', (event) => {
     }
 });
 
-green.addEventListener('click', (event) => {
+$('#green').on('click', function() {
     if (powerOn) {
         playerSequence.push(4);
         confirm();
@@ -204,9 +204,9 @@ function confirm() {
     }
         if (correct == false) {
             gameFlash();
-            counterOn.innerHTML = "END";
+            counterOn.html("END");
             setTimeout(() => {
-                counterOn.innerHTML = rounds;
+                counterOn.html("rounds");
                 clearColor();
                 
                 if (strict) {
@@ -229,7 +229,7 @@ function confirm() {
         playerSequence = [];
         simonTurn = true;
         flashColor = 0;
-        counterOn.innerHTML = rounds;
+        counterOn.html("rounds");
         interval = setInterval(simonGame, 800);
     } 
 }
@@ -237,7 +237,7 @@ function confirm() {
 
 function winGame() {
     flashColor();
-    counterOn.innerHTML = "YOU WIN!";
+    counterOn.html("YOU WIN!");
     powerOn = false;
     win = true;
 }
