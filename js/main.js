@@ -13,45 +13,42 @@ var on = false;
 var powerOn = false; // if on button pressed
 var win; // player has won 
 
-//pass in jquery id selectors
+ // pass in selector with ID tag 
 var counterOn = $("#counter");
 var red = $("#red");
 var blue = $("#blue");
 var yellow = $("#yellow");
 var green = $("#green");
 var onButton = $("#on");
-var startButton = $("#start");
 var strictButton = $("#strict");
 
 
 // switches and controls //
-$("#on").click(function() {
-  if (!powerOn == true){
-    onButton = true;
-    counterOn.html("0");
+$('#strict').on('click', function() {
+  if (strictButton == true) {
+    strict = true;
   } else {
-    onButton = false;
-    counterOn.html("--");
+    strict = false;
+  }
+});
+
+$('#on').on('click', function() {
+  if (onButton == true) {
+    on = true;
+    counterOn.innerHTML = "0";
+  } else {
+    on = false;
+    counterOn.innerHTML = "";
     clearColor();
     clearInterval(interval);
   }
 });
 
-$("#start").click(function() {
+$('#start').on('click', function() {
   if (on || win) {
     play();
   }
-});  
-  
-  $('#strict').click(function() { // when the player clicks strict
-    if (strict) {
-      strict = false;
-      $(this).removeClass('red-button');
-    } else {
-      strict = true;
-      $(this).addClass('red-button');
-    }
-  });
+});
 
 
 // functions //
@@ -95,38 +92,38 @@ function simonGame() {
 
 function one() {
     if (sound) {
-        var audio = document.getElementById("sound1");
+        var audio = $("sound1");
         audio.play();
     }
     sound = true;
-    red.style.backgroundColor = "OrangeRed";
+    $(".red").css("background-color", "red");
 }
 
 function two() {
     if (sound) {
-        var audio = document.getElementById("sound2");
+        var audio = $("sound2");
         audio.play();
     }
     sound = true;
-    blue.style.backgroundColor = "Aqua";
+    $(".blue").css("background-color", "blue");
 }
 
 function three() {
     if (sound) {
-        var audio = document.getElementById("sound3");
+        var audio = $("sound3");
         audio.play();
     }
     sound = true;
-    yellow.style.backgroundColor = "LemonChiffon";
+    $(".yellow").css("background-color", "yellow");
 }
 
 function four() {
     if (sound) {
-        var audio = document.getElementById("sound4");
+        var audio = $("sound4");
         audio.play();
     }
     sound = true;
-    green.style.backgroundColor = "GreenYellow";
+    $(".green").css("background-color", "green");
 }
 
 function clearColor() {
