@@ -1,116 +1,202 @@
-/*--------------------------------------- Page elements */
+@import "https://fonts.googleapis.com/css?family=Anton";
+@import "https://fonts.googleapis.com/css?family=Orbitron";
+/* main console */
+/* Buttons */
+/* coloured buttons */
+/* appearance inner console */
 body {
-  text-align: center;
+  background-color: #222222;
 }
 
-.header {
-  padding-top: 50px;
-}
-
-/*--------------------------------------- Mixins for Simon */
-/*--------------------------------------- Simon Game parts*/
-/*--- Outer Circle */
-#simon-game {
-  --circle: 510px;
-  padding: 5px;
-  border-radius: 100%;
+.simon-game {
+  background-color: black;
+  border: 10px solid black;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  width: 500px;
+  height: 500px;
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  background: black;
-  height: var(--circle);
-  width: var(--circle);
+  overflow: hidden;
+}
+
+.button-click {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/*--- Game buttons */
-.button {
-  --gameButton: 250px;
+  width: 250px;
+  height: 250px;
   border: 5px solid black;
+}
+.button-click:hover {
   cursor: pointer;
-  height: var(--gameButton);
-  width: var(--gameButton);
 }
 
-.button:focus {
-  outline: none;
+.green {
+  background-color: #9dd642;
+  right: 50%;
+  bottom: 50%;
 }
 
-#red {
-  background: red;
-  border-top-left-radius: 100%;
+.red {
+  background-color: #da111e;
+  left: 50%;
+  bottom: 50%;
 }
 
-#blue {
-  background: blue;
-  border-top-right-radius: 100%;
+.yellow {
+  background-color: #fad73a;
+  right: 50%;
+  top: 50%;
 }
 
-#yellow {
-  background: yellow;
-  border-bottom-left-radius: 100%;
+.blue {
+  background-color: #1613e6;
+  left: 50%;
+  top: 50%;
 }
 
-#green {
-  background: green;
-  border-bottom-right-radius: 100%;
+.green.light {
+  opacity: 0.8;
 }
 
-/*-- Inner Circle */
-#displayText {
-  opacity: 0.3;
+.red.light {
+  opacity: 0.8;
+}
+
+.yellow.light {
+  opacity: 0.8;
+}
+
+.blue.light {
+  opacity: 0.8;
 }
 
 .controls {
-  --circle: 260px;
-  padding: 15px;
-  border-radius: 100%;
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  background: black;
-  height: var(--circle);
-  width: var(--circle);
+  background-clip: content-box;
+  margin: auto;
+  vertical-align: middle;
+  border-radius: 50%;
+  width: 236px;
+  height: 236px;
+  background-color: #d8d3d3;
   position: absolute;
   top: 50%;
   left: 50%;
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  border: 12px solid black;
 }
 
-/*-- Inner Circle */
-#start {
-  height: 30px;
-  width: 55px;
-  border-radius: 15%;
-  cursor: pointer;
-  cursor: hand;
-  outline: none;
+h1 {
+  font-family: "Anton", sans-serif;
+  font-size: 50px;
+  margin-top: 37px;
+  margin-left: -10px;
 }
 
-#strict {
-  height: 30px;
-  width: 55px;
-  border-radius: 15%;
-  cursor: pointer;
-  cursor: hand;
-  outline: none;
-}
-
-#counter {
+.counter-bg {
+  width: 58px;
   height: 40px;
-  width: 65px;
-  background: grey;
-  border-radius: 15%;
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background-color: #46484b;
+  border: 4px solid black;
+  margin-left: 28px;
 }
 
-/*# sourceMappingURL=style.scss.map */
+.counter-text {
+  color: #3f3f3f;
+  font-size: 25px;
+  margin-top: 1px;
+}
+
+.counter-text.turn {
+  color: #d2f700;
+  font-family: "Orbitron", sans-serif;
+  margin-top: 4px;
+}
+
+.button {
+  border: 4px;
+  outline: none;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.button:active {
+  opacity: 0.8;
+}
+
+.start-button {
+  margin-top: -34px;
+  margin-left: 102px;
+  background-color: #426333;
+}
+
+.start-button.on {
+  margin-top: -34px;
+  margin-left: 102px;
+  background-color: #18e656;
+}
+
+.strict-button {
+  margin-top: -28px;
+  margin-left: 155px;
+  background-color: #110b0b;
+}
+
+.strict-button.light-up {
+  background-color: #ff1201;
+}
+
+.titles {
+  font-size: 10px;
+  font-weight: bold;
+  position: absolute;
+}
+
+.count {
+  top: 139px;
+  left: 36px;
+}
+
+.start {
+  top: 139px;
+  left: 97px;
+}
+
+.strict {
+  top: 139px;
+  left: 148px;
+}
+
+.off {
+  top: 165px;
+  left: 55px;
+}
+
+.on {
+  top: 165px;
+  left: 133px;
+}
+
+.simon-switch {
+  position: absolute;
+  width: 40px;
+  height: 20px;
+  background-color: #222222;
+  top: 171px;
+  left: 85px;
+  cursor: pointer;
+}
+
+.simon-switch-small {
+  background-color: #dd1166;
+  width: 20px;
+  height: 20px;
+}
+
+.simon-switch-small.turnon {
+  float: right;
+}
 
 /*# sourceMappingURL=style.css.map */

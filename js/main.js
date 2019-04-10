@@ -1,244 +1,219 @@
-/* global $ */
-$(function() {
-var gameSequence = []; // order of buttons clicked by game 
-var playerSequence = []; // order of buttons clicked by player 
-var flashColor;  // number of times button flashes 
-var rounds;  // what round player is on 
-var correct;  // if player is correct
-var interval;
-var simonTurn;  // if simon's turn
-var strict = false;  
-var sound = true;
-var on = false;
-var powerOn = false; // if on button pressed
-var win; // player has won 
-
- // pass in selector with ID tag 
-var counterOn = $("#counter");
-var red = $("#red");
-var blue = $("#blue");
-var yellow = $("#yellow");
-var green = $("#green");
-var onButton = $("#on");
-var strictButton = $("#strict");
+//Console Game Pieces
+var gameSequence = [], // order of buttons clicked by game
+    playerSequence = [], // order of buttons clicked by player
+    simonTurn = 0,
+    flashColor = 300, // number of times button flashes
+    rounds = 0, // displays counter
+    onButton = false, // starts game
+    playerButton = false,
+    strictButton = false,
+    colorButtons = ["green", "red", "yellow", "blue"];
 
 
-// switches and controls //
-$('#on').on('click', function() {
-  if (!onButton == true) {
-    counterOn.html("0");
-  } else {
-    onButton = false;
-    counterOn.html("--");
-    clearColor();
-    clearInterval(interval);
-  }
-});
+// Start with the Switch on/off to activate game
+    $(".simon-switch").click(function() {
+        if (!onButton) {
+            onButton = true;
+            $(".simon-switch-small").addClass("turnon");
+            $(".counter-text").addClass("turn");
+        } else {
+            onButton = false;
+            strictButton = false;
+            gameSequence = [];
+            playerSequence = [];
+            $(".counter-text").text("--");
+            rounds = 0;
+            console.clear(); // reset all active buttons
+            $(".simon-switch-small").removeClass("turnon");
+            $(".counter-text").removeClass("turn");
+            $(".strict-button").removeClass("light-up");
+            $(".start-button").removeClass("on");
+        }
+    })
 
-$('#start').on('click', function() {
-  if (on || win) {
-    play();
-  }
-});
+// Press Start button to begin game
+    $(".start-button").click(function() {
+        if (onButton) {
+            startMove();
+            $(".start-button").addClass("on");
+        }
+        else {
+            console.clear();
+            $(".start-button").removeClass("on");
+        }
+    });
 
-$('#strict').on('click', function() {
-  if (strictButton == true) {
-    strict = true;
-  } else {
-    strict = false;
-  }
-});
+// Toggle Strict Button
+    $(".strict-button").click(function() {
+        if (onButton) {
+            if (!strictButton) {
+                strictButton = true;
+                $(".strict-button").addClass("light-up");
+            } else {
+                strictButton = false;
+                $(".strict-button").removeClass("light-up");
+            }
+        }
+    })
+
+// Player to follow game sequence
+$(".button-click").click(function() {
+    if (onButton && playerButton) {
+        playerTurn(this);
+        validate();
+    }
+})
+
+// Player Turn
+function playerTrue() {
+playerButton = true;
+    $(".button-click").addClass("true");
+}
+
+// Game Turn
+function playerFalse() {
+playerButton = false;
+    $(".button-click").removeClass("true");
+}
 
 
+// Sound Effects - Audio files found here: https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-a-simon-game
+var sounds = {
+    green: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"),
+    red: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"),
+    yellow: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"),
+    blue: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
+    win: new Audio("http://freesound.org/data/previews/109/109662_945474-lq.mp3"),
+    wrong: new Audio("https://freesound.org/data/previews/415/415764_6090639-lq.mp3"),
+ };
 
-// functions //
+// Create Game Sequence
+function press() {
+    gameSequence.push(colorButtons[Math.floor(Math.random() * colorButtons.length)]);
+    return setTimeout(counting, 300);
+
+}
+
+// Game Sequence Activates
+function steps(i) {
+    $("." + gameSequence[i]).addClass("light");
+    sounds[gameSequence[i]].play();
+
+    setTimeout(function() {
+        $("." + gameSequence[i]).removeClass("light");
+    }, flashColor);
+}
+
+// Displays Rounds in Counter
+function counting() {
+    rounds++;
+    $(".counter-text").text(rounds < 10 ? "0" + rounds : rounds);
+}
+
+function countingError() {
+    rounds = 0;
+    $(".counter-text").text("??");
+}
+
+// Game Sequence in Play
 function play() {
-    win = false;
-    gameSequence = [];
+    var interval = 1000;
+    var i = 0,
+    simonTurn = gameSequence.length;
+    function loop() {
+        if (i < simonTurn) {
+            playerFalse()
+            steps(i);
+            i++;
+            setTimeout(loop, interval);
+        } else {
+            console.log(i)
+            playerTrue()
+        }
+    }
+    setTimeout(loop, interval);
+}
+
+// Player Sequence
+function playerTurn(choice) {
+    var playerColor = $(choice).attr("id");
+    playerSequence.push(playerColor);
+    sounds[playerColor].play();
+    $("." + playerColor).addClass("light");
+    setTimeout(function() {
+        $("." + playerColor).removeClass("light");
+    }, flashColor);
+}
+
+// Player Starts
+function startMove() {
     playerSequence = [];
-    flashColor = 0;
-    interval = 0;
-    rounds = 1;
-    counterOn.html("1");
-    correct = true;
-    for (var i = 0; i < 20; i++) {
-        gameSequence.push(Math.floor(Math.random() * 4) + 1);
-}
-        simonTurn = true;
-        
-        interval = setInterval(simonGame, 800);
+    gameSequence = [];
+    rounds = 0;
+    press();
+    play();
 }
 
-function simonGame() {
-    powerOn = false;
-    
-    if (flashColor == rounds) {
-        clearInterval(interval);
-        simonTurn = false;
-        clearColor();
-        powerOn = true;
-    }
-    if (simonTurn) {
-        clearColor();
-        setTimeout(() => {
-            if (gameSequence[flashColor] == 1) one();
-            if (gameSequence[flashColor] == 2) two();
-            if (gameSequence[flashColor] == 3) three();
-            if (gameSequence[flashColor] == 4) four();
-            flashColor++;
-        }, 200);
-    }
+// Player Makes Wrong Move
+function wrongMove() {
+    playerSequence = [];
+    console.log("no");
+    sounds.wrong.play();
 }
 
-function one() {
-    if (sound) {
-        var audio = $("sound1");
-        audio.play();
-    }
-    sound = true;
-    $(".red").css("opacity", "1");
-}
 
-function two() {
-    if (sound) {
-        var audio = $("sound2");
-        audio.play();
-    }
-    sound = true;
-    $(".blue").css("opacity", "1");
-}
+// Player Wins
+function win() {
+    setTimeout(function() {
+        winSound.play();
+        rounds = 0;
+        $(".counter-text").text("YAY!");
+        $(".counter-text").effect("bounce", 1);
+        $(".button-click").effect("bounce", 1);
+    }, 1000);
 
-function three() {
-    if (sound) {
-        var audio = $("sound3");
-        audio.play();
-    }
-    sound = true;
-    $(".yellow").css("opacity", "1");
-}
-
-function four() {
-    if (sound) {
-        var audio = $("sound4");
-        audio.play();
-    }
-    sound = true;
-    $(".green").css("opacity", "1");
-}
-
-function clearColor() {
-    $(".red").css("background-color", "red");
-    $(".blue").css("background-color", "blue");
-    $(".yellow").css("background-color", "yellow");
-    $(".green").css("background-color", "green");
-}
-
-function gameFlash() {
-    $(".red").css("background-color", "red").style.opacity = "0.5";
-    $(".blue").css("background-color", "blue").style.opacity = "0.5";
-    $(".yellow").css("background-color", "yellow").style.opacity = "0.5";
-    $(".green").css("background-color", "green").style.opacity = "0.5";
-}
-
-// events //
-$('#red').on('click', function() {
-    if (powerOn) {
-        playerSequence.push(1);
-        confirm();
-        one();
-        if (!win) {
-            setTimeout(() => {
-                clearColor();
-            }, 300);
-        }
-    }
-});
-
-$('#blue').on('click', function() {
-    if (powerOn) {
-        playerSequence.push(2);
-        confirm();
-        two();
-        if (!win) {
-            setTimeout(() => {
-                clearColor();
-            }, 300);
-            
-        }
-    }
-});
-
-$('#yellow').on('click', function() {
-    if (powerOn) {
-        playerSequence.push(3);
-        confirm();
-        three();
-        if (!win) {
-            setTimeout(() => {
-                clearColor();
-            }, 300);
-            
-        }
-    }
-});
-
-$('#green').on('click', function() {
-    if (powerOn) {
-        playerSequence.push(4);
-        confirm();
-        four();
-        if (!win) {
-            setTimeout(() => {
-                clearColor();
-            }, 300);
-            
-        }
-    }
-});
-
-function confirm() {
-    if (playerSequence[playerSequence.length -1] !== gameSequence[playerSequence.length - 1]) correct = false;
-    
-    if (playerSequence.length == 20 && correct) {
-        winGame();
-    }
-        if (correct == false) {
-            gameFlash();
-            counterOn.html("END");
-            setTimeout(() => {
-                counterOn.html("rounds");
-                clearColor();
-                
-                if (strict) {
-                    play();
-                    } else {
-                        simonTurn = true;
-                        flashColor = 0;
-                        playerSequence = [];
-                        correct = true;
-                        interval = setInterval(simonGame, 800);
-                    }
-                }
-            , 800);
-            
-            sound = false;
-    }
-    
-    if (rounds == playerSequence.length && correct && !win) {
-        rounds++;
+    return setTimeout(function() {
         playerSequence = [];
-        simonTurn = true;
-        flashColor = 0;
-        counterOn.html("rounds");
-        interval = setInterval(simonGame, 800);
-    } 
+        gameSequence = [];
+        press();
+        play();
+    }, 2000);
+
 }
 
+// Validate Game Sequence against Player Sequence
+function validate() {
+    var playerLength = playerSequence.length - 1;
+    if (playerSequence[playerLength] !== gameSequence[playerLength]) {
+        if (strictButton) { //strict button on
+            playerFalse();
+            setTimeout(wrongMove, 500);
+            setTimeout(countingError, 500);
+            setTimeout(startMove, 1000);
 
-function winGame() {
-    flashColor();
-    counterOn.html("YOU WIN!");
-    powerOn = false;
-    win = true;
+        } else {
+            playerFalse();
+            $(".counter-text").text("??");
+            setTimeout(function() {
+                $(".counter-text").text(rounds < 10 ? "0" + rounds : rounds);
+            }, 1200);
+            setTimeout(wrongMove, 500);
+            setTimeout(play, 1000);
+        }
+    } else {
+        console.log("YAY!")
+        if (playerSequence.join("") === gameSequence.join("")) {
+            simonTurn = gameSequence.length;
+
+            if (simonTurn === 20) {
+                return win();
+            } else {
+                playerSequence = [];
+                press();
+                console.log(gameSequence)
+                return play();
+            }
+        }
+    }
 }
-});
+
