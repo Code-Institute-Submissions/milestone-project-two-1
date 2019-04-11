@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css?family=Anton')
+@import url('https://fonts.googleapis.com/css?family=Orbitron')
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed')
+
+body
+  background-color: #222
+  font-family: 'Roboto Condensed', sans-serif
+
+/* Simon Game Console */
+.simon-game
+  background-color: #222
+  margin-top: 100px
+  margin-left: auto
+  margin-right: auto
+  width: 500px
+  height: 500px
+  position: relative
+  overflow: hidden
+
+.square-buttons
+  position: absolute
+  width: 250px
+  height: 250px
+  border: 5px solid #000
+  &:hover
+    cursor: pointer
+
+.green
+  background-color: #9dd642
+  margin-right: 50%
+  bottom: 50%
+
+.red
+  background-color: #da111e
+  margin-left: 50%
+  bottom: 50%
+
+.yellow
+  background-color: #fad73a
+  margin-right: 50%
+  margin-top: 50%
+
+.blue
+  background-color: #1613e6
+  margin-left: 50%
+  margin-top: 50%
+
+.green.light, .red.light, .yellow.light, .blue.light
+  opacity: 0.8
+
+/* Game Controls */
+.controls
+  background-clip: content-box
+  vertical-align: middle
+  border-radius: 50%
+  width: 240px
+  height: 240px
+  background-color: #d8d3d3
+  position: absolute
+  margin-top: 50%
+  margin-left: 50%
+  -webkit-transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%)
+  border: 10px solid #000
+
+/* Simon Title */
+.title
+  font-family: 'Anton', sans-serif
+  font-size: 50px
+  margin-top: 30px
+  margin-left: -5px
+
+/* Start and Strict Buttons */
+.button
+  border: 4px
+  outline: none
+  height: 28px
+  width: 28px
+  border-radius: 50%
+  cursor: pointer
+  &:active
+    opacity: 0.8
+
+.start-button
+  margin-top: -30px
+  margin-left: 30px
+  background-color: #426333
+  &.on
+    margin-top: -30px
+    margin-left: 30px
+    background-color: #18e656
+    
+.start
+  margin-top: 10px
+  margin-left: 30px
+
+.strict-button
+  margin-top: -28px
+  margin-left: 155px
+  background-color: #110b0b
+  &.light-up
+    background-color: #ff1201
+
+.strict
+  margin-top: 10px
+  margin-left: 155px
+
+/* Counter */
+.counter-bg
+  width: 58px
+  height: 40px
+  background-color: #46484b
+  border: 4px solid #000
+  margin-left: 80px
+
+.counter-text
+  color: #3f3f3f
+  font-size: 25px
+  margin-top: 1px
+  &.turn
+    color: #d2f700
+    font-family: "Orbitron",sans-serif
+    margin-top: 4px
+    
+.round
+  margin-top: 10px
+  margin-left: 95px
+
+/* On/Off switch */
+.simon-switch
+  position: absolute
+  width: 40px
+  height: 20px
+  background-color: #222
+  margin-top: 35px
+  margin-left: 90px
+  cursor: pointer
+
+.simon-switch-toggle
+  background-color: #d16
+  width: 20px
+  height: 20px
+  &.turnon
+    float: right  
+
+/* Remaining text on console */
+.titles
+  font-size: 10px
+  font-weight: bold
+  position: absolute
+
+.off
+  margin-top: 40px
+  margin-left: 60px
+
+.on
+  margin-top: 40px
+  margin-left: 145px
+

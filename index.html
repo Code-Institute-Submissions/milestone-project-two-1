@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css" />
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css" />
     <title>Simon - A Memory Game</title>
 </head>
 
 <body>
+    <!-- Inspiration on how to structure Simon Game Console in HTML below: https://codepen.io/BenLBlood/pen/LGLEoJ?editors=1000 -->
     <div class="container-fluid text-center">
         <!-- Outer Console -->
         <div class="simon-game">
             <!-- Buttons -->
-            <div class="button-click green" id="green"></div>
-            <div class="button-click red" id="red"></div>
-            <div class="button-click yellow" id="yellow"></div>
-            <div class="button-click blue" id="blue"></div>
+            <div class="square-buttons green" id="green"></div>
+            <div class="square-buttons red" id="red"></div>
+            <div class="square-buttons yellow" id="yellow"></div>
+            <div class="square-buttons blue" id="blue"></div>
             <!-- Inner Console Controls-->
             <div class="controls">
                 <h1 class="title">Simon</h1>
@@ -25,21 +26,23 @@
                     <h6 class="counter-text">--</h6></div>
                 <div class="button start-button"></div>
                 <div class="button strict-button"></div>
-                <h6 class="titles count">ROUND</h6>
+                <h6 class="titles round">ROUND</h6>
                 <h6 class="titles start">START </h6>
                 <h6 class="titles strict">STRICT</h6>
                 <h6 class="titles off">OFF</h6>
                 <h6 class="titles on">ON</h6>
                 <!-- On/Off Switch -->
                 <div class="simon-switch">
-                    <div class="simon-switch-small"></div>
+                    <div class="simon-switch-toggle"></div>
                 </div>
             </div>
         </div>
     </div>
+    
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="/js/main.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
 

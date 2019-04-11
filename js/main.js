@@ -1,3 +1,7 @@
+/* global $ */
+$(document).ready(function () {
+
+
 //Console Game Pieces
 var gameSequence = [], // order of buttons clicked by game
     playerSequence = [], // order of buttons clicked by player
@@ -14,7 +18,7 @@ var gameSequence = [], // order of buttons clicked by game
     $(".simon-switch").click(function() {
         if (!onButton) {
             onButton = true;
-            $(".simon-switch-small").addClass("turnon");
+            $(".simon-switch-toggle").addClass("turnon");
             $(".counter-text").addClass("turn");
         } else {
             onButton = false;
@@ -24,12 +28,12 @@ var gameSequence = [], // order of buttons clicked by game
             $(".counter-text").text("--");
             rounds = 0;
             console.clear(); // reset all active buttons
-            $(".simon-switch-small").removeClass("turnon");
+            $(".simon-switch-toggle").removeClass("turnon");
             $(".counter-text").removeClass("turn");
             $(".strict-button").removeClass("light-up");
             $(".start-button").removeClass("on");
         }
-    })
+    });
 
 // Press Start button to begin game
     $(".start-button").click(function() {
@@ -54,36 +58,36 @@ var gameSequence = [], // order of buttons clicked by game
                 $(".strict-button").removeClass("light-up");
             }
         }
-    })
+    });
 
 // Player to follow game sequence
-$(".button-click").click(function() {
+$(".square-buttons").click(function() {
     if (onButton && playerButton) {
         playerTurn(this);
         validate();
     }
-})
+});
 
 // Player Turn
 function playerTrue() {
 playerButton = true;
-    $(".button-click").addClass("true");
+    $(".square-buttons").addClass("true");
 }
 
 // Game Turn
 function playerFalse() {
 playerButton = false;
-    $(".button-click").removeClass("true");
+    $(".square-buttons").removeClass("true");
 }
 
 
-// Sound Effects - Audio files found here: https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-a-simon-game
+// Sound Effects - Audio files found here: https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-a-simon-game & freesound.org
 var sounds = {
     green: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"),
     red: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"),
     yellow: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"),
     blue: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
-    win: new Audio("http://freesound.org/data/previews/109/109662_945474-lq.mp3"),
+    win: new Audio("https://freesound.org/data/previews/109/109662_945474-lq.mp3"),
     wrong: new Audio("https://freesound.org/data/previews/415/415764_6090639-lq.mp3"),
  };
 
@@ -165,11 +169,11 @@ function wrongMove() {
 // Player Wins
 function win() {
     setTimeout(function() {
-        winSound.play();
+        win.play();
         rounds = 0;
         $(".counter-text").text("YAY!");
         $(".counter-text").effect("bounce", 1);
-        $(".button-click").effect("bounce", 1);
+        $(".square-buttons").effect("bounce", 1);
     }, 1000);
 
     return setTimeout(function() {
@@ -217,3 +221,4 @@ function validate() {
     }
 }
 
+});
