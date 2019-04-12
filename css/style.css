@@ -6,7 +6,7 @@ body {
   font-family: "Roboto Condensed", sans-serif;
 }
 
-/* Simon Game Console */
+/*---- Simon Game Console ----*/
 .simon-game {
   background-color: #222;
   margin-top: 100px;
@@ -18,11 +18,11 @@ body {
   overflow: hidden;
 }
 
+/*---- Styling of Colour Buttons ----*/
 .square-buttons {
   position: absolute;
   width: 250px;
   height: 250px;
-  border: 5px solid #000;
 }
 .square-buttons:hover {
   cursor: pointer;
@@ -56,7 +56,7 @@ body {
   opacity: 0.8;
 }
 
-/* Game Controls */
+/*---- Game Controls ----*/
 .controls {
   background-clip: content-box;
   vertical-align: middle;
@@ -72,7 +72,7 @@ body {
   border: 10px solid #000;
 }
 
-/* Simon Title */
+/*---- Simon Title ----*/
 .title {
   font-family: "Anton", sans-serif;
   font-size: 50px;
@@ -80,7 +80,7 @@ body {
   margin-left: -5px;
 }
 
-/* Start and Strict Buttons */
+/*---- Start and Strict Buttons ----*/
 .button {
   border: 4px;
   outline: none;
@@ -111,7 +111,7 @@ body {
 
 .strict-button {
   margin-top: -28px;
-  margin-left: 155px;
+  margin-left: 160px;
   background-color: #110b0b;
 }
 .strict-button.light-up {
@@ -120,27 +120,27 @@ body {
 
 .strict {
   margin-top: 10px;
-  margin-left: 155px;
+  margin-left: 160px;
 }
 
-/* Counter */
+/*---- Counter ----*/
 .counter-bg {
-  width: 58px;
+  width: 70px;
   height: 40px;
   background-color: #46484b;
   border: 4px solid #000;
-  margin-left: 80px;
+  margin-left: 75px;
 }
 
 .counter-text {
   color: #3f3f3f;
-  font-size: 25px;
-  margin-top: 1px;
+  font-size: 23px;
+  margin-top: 5px;
 }
 .counter-text.turn {
   color: #d2f700;
   font-family: "Orbitron", sans-serif;
-  margin-top: 4px;
+  margin-top: 5px;
 }
 
 .round {
@@ -148,7 +148,7 @@ body {
   margin-left: 95px;
 }
 
-/* On/Off switch */
+/*---- On/Off switch ----*/
 .simon-switch {
   position: absolute;
   width: 40px;
@@ -168,7 +168,7 @@ body {
   float: right;
 }
 
-/* Remaining text on console */
+/*---- Remaining text styling on console ----*/
 .titles {
   font-size: 10px;
   font-weight: bold;
