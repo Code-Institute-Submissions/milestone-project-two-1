@@ -18,8 +18,8 @@ var gameSequence = [], // order of buttons clicked by game
     flashColor = 200, // duration of buttons flashing colour
     colorButtons = ["green", "red", "yellow", "blue"];
 
-
-// Start with the Switch on/off to activate game
+// ACTIVATING GAME
+    // Start with the Switch on/off to activate game
     $(".simon-switch").click(function() {
         if (!onButton) { // if toggle to on position
             onButton = true;
@@ -76,7 +76,7 @@ var sounds = {
  };
 
 // GAME SEQUENCE
-// Player to follow game sequence
+    // Player to follow game sequence
 $(".square-buttons").click(function() {
     if (onButton && playerButton) {
         playerTurn(this);
@@ -223,7 +223,7 @@ function validate() {
         if (playerSequence.length === gameSequence.length) {
             simonTurn = gameSequence.length;
 
-            if (simonTurn === 3) {
+            if (simonTurn === 20) {
                 return win();
                 
             } else {
