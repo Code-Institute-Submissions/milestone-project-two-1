@@ -1,6 +1,13 @@
 /* global $ */
 $(function() {
-//Console Game Pieces
+    
+    /* Simple Version of Simon Game
+    -- Toggle on/off button to activate game.
+    -- Press Start Button to begin game sequence in normal mode. Unlimited tries if fail to remember game sequence correctly.
+    -- Strict Mode means you start from round 1 if you fail to remember game sequence correctly.
+    -- Player wins when reach round 20. */
+    
+// CONSOLE GAME PIECES
 var gameSequence = [], // order of buttons clicked by game
     playerSequence = [], // buttons clicked by player
     simonTurn = 0, // start round at zero
@@ -14,11 +21,11 @@ var gameSequence = [], // order of buttons clicked by game
 
 // Start with the Switch on/off to activate game
     $(".simon-switch").click(function() {
-        if (!onButton) {
+        if (!onButton) { // if toggle to on position
             onButton = true;
             $(".simon-switch-toggle").addClass("turnon");
             $(".counter-text").addClass("turn");
-        } else {
+        } else { // if toggle to off position
             onButton = false;
             strictButton = false;
             gameSequence = [];
@@ -58,6 +65,17 @@ var gameSequence = [], // order of buttons clicked by game
         }
     });
 
+// Sound Effects - Audio files found here: https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-a-simon-game & freesound.org
+var sounds = {
+    green: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
+    red: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"),
+    yellow: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"),
+    blue: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"),
+    win: new Audio("https://freesound.org/data/previews/428/428156_8014960-lq.mp3"),
+    wrong: new Audio("https://freesound.org/data/previews/415/415764_6090639-lq.mp3"),
+ };
+
+// GAME SEQUENCE
 // Player to follow game sequence
 $(".square-buttons").click(function() {
     if (onButton && playerButton) {
@@ -78,19 +96,8 @@ playerButton = false;
     $(".square-buttons").removeClass("true");
 }
 
-
-// Sound Effects - Audio files found here: https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-a-simon-game & freesound.org
-var sounds = {
-    green: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
-    red: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"),
-    yellow: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"),
-    blue: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"),
-    win: new Audio("https://freesound.org/data/previews/428/428156_8014960-lq.mp3"),
-    wrong: new Audio("https://freesound.org/data/previews/415/415764_6090639-lq.mp3"),
- };
-
 // Create Game Sequence
-    //-----Random numbers from 1-4. Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+    // Create Random numbers from 1-4. 
 function press() {
     gameSequence.push(colorButtons[Math.floor(Math.random() * 4)]);
     play();
@@ -114,16 +121,14 @@ function counting() {
     $(".counter-text").text(rounds < 10 ? "0" + rounds : rounds); // If number less than 10, display in the form of 03, instead of 3, as an example
 }
 
-function countingError() { // if user presses incorrectly, display ??
+function countingError() { // if user presses incorrectly, display "??""
     rounds = 0;
     $(".counter-text").text("??");
 }
 
-
-
 // Game Sequence in Play
 function play() {
-    var interval = 1000;
+    var interval = 1000; // delay in colour button animation
     var i = 0,
     simonTurn = gameSequence.length;
     function loop() {
@@ -168,26 +173,32 @@ function wrongMove() {
 }
 
 // Player Wins
-    //Player wins, counter text flashes with animation to end game. To restart, press on/off button.
+    //Player wins, counter text and game buttons flash with fade in/out effect - Animation referenced from: https://www.w3schools.com/jquery/eff_fadeout.asp
 function win() {
     setTimeout(function() {
         sounds.win.play();
         rounds = 0;
-        $(".counter-text").text("YAY!").animate({opacity: "0.2"}).animate({opacity: "1"}).animate({opacity: "0.2"}).animate({opacity: "1"}).animate({opacity: "0.2"}).animate({opacity: "1"});
-    }, 1000); //Animation referenced from: https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_opacity
-    
+        $(".counter-text").text("YAY!").fadeOut("slow").fadeIn("slow").fadeOut("slow").fadeIn("slow"); 
+        $(".square-buttons").fadeOut("slow").fadeIn("slow").fadeOut("slow").fadeIn("slow");
+    }, 1000); 
+    // game will turn off once player wins. to restart, toggle on button.
     return setTimeout(function() {
         playerSequence = [];
         gameSequence = [];
-    }, 5000); // adjust duration the "yay" appears
+                console.clear(); //turn game off once player wins.
+            $(".simon-switch").removeClass("off");    
+            $(".simon-switch-toggle").removeClass("turnon");
+            $(".counter-text").removeClass("turn");
+            $(".strict-button").removeClass("light-up");
+            $(".start-button").removeClass("on");
+    }, 5000); // delay before game turns off
     
-
 }
 
 // Validate Game Sequence against Player Sequence
   /* -- Check if the player input matches game selection
      -- If in normal mode, replay sequence - unlimited tries if presses wrong button
-     -- If in Strict mode, if press wrong button, end round and start from 01
+     -- If in Strict mode, press wrong button, end round and start from 01
      -- When player successfully reaches round 20, player wins and game ends */
 function validate() {
     var playerLength = playerSequence.length -1;

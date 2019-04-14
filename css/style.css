@@ -12,8 +12,8 @@ body {
   margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
-  width: 500px;
-  height: 500px;
+  width: 430px;
+  height: 430px;
   position: relative;
   overflow: hidden;
 }
@@ -21,8 +21,8 @@ body {
 /*---- Styling of Colour Buttons ----*/
 .square-buttons {
   position: absolute;
-  width: 250px;
-  height: 250px;
+  width: 215px;
+  height: 215px;
 }
 .square-buttons:hover {
   cursor: pointer;
