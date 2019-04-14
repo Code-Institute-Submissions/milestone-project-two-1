@@ -90,7 +90,7 @@ var sounds = {
  };
 
 // Create Game Sequence
-    //-----Assigned the Math.random() function for this sequence. Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+    //-----Random numbers from 1-4. Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function press() {
     gameSequence.push(colorButtons[Math.floor(Math.random() * 4)]);
     play();
@@ -111,13 +111,15 @@ function steps(activate) {
 // Displays Rounds in Counter
 function counting() {
     rounds++;
-    $(".counter-text").text(rounds < 10 ? "0" + rounds : rounds); // If number less than 10, display eg: 03
+    $(".counter-text").text(rounds < 10 ? "0" + rounds : rounds); // If number less than 10, display in the form of 03, instead of 3, as an example
 }
 
 function countingError() { // if user presses incorrectly, display ??
     rounds = 0;
     $(".counter-text").text("??");
 }
+
+
 
 // Game Sequence in Play
 function play() {
@@ -138,15 +140,14 @@ function play() {
     setTimeout(loop, interval);
 }
 
-// Player Sequence
-//----- reference https://codepen.io/zentech/pen/XaYygR?editors=0010 line 63 - 80 in JS file
+// Player Sequence - push color buttons
 function playerTurn(go) {
-    var playerColor = $(go).attr("id");
-    playerSequence.push(playerColor);
-    sounds[playerColor].play();
-    $("." + playerColor).addClass("light");
+    var playColor = $(go).attr("id");
+    playerSequence.push(playColor);
+    sounds[playColor].play();
+    $("." + playColor).addClass("light");
     setTimeout(function() {
-        $("." + playerColor).removeClass("light");
+        $("." + playColor).removeClass("light");
     }, flashColor);
 }
 
@@ -166,28 +167,28 @@ function wrongMove() {
     sounds.wrong.play();
 }
 
-
 // Player Wins
+    //Player wins, counter text flashes with animation to end game. To restart, press on/off button.
 function win() {
     setTimeout(function() {
         sounds.win.play();
         rounds = 0;
         $(".counter-text").text("YAY!").animate({opacity: "0.2"}).animate({opacity: "1"}).animate({opacity: "0.2"}).animate({opacity: "1"}).animate({opacity: "0.2"}).animate({opacity: "1"});
-        $(".square-buttons").animate({opacity: "0.2"}).animate({opacity: "1"}).animate({opacity: "0.2"}).animate({opacity: "1"}).animate({opacity: "0.2"}).animate({opacity: "1"});
     }, 1000); //Animation referenced from: https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_opacity
     
-
     return setTimeout(function() {
         playerSequence = [];
         gameSequence = [];
-        press();
-        play();
-    }, 5000); // Time to enjoy the win!
+    }, 5000); // adjust duration the "yay" appears
     
 
 }
 
 // Validate Game Sequence against Player Sequence
+  /* -- Check if the player input matches game selection
+     -- If in normal mode, replay sequence - unlimited tries if presses wrong button
+     -- If in Strict mode, if press wrong button, end round and start from 01
+     -- When player successfully reaches round 20, player wins and game ends */
 function validate() {
     var playerLength = playerSequence.length -1;
     if (playerSequence[playerLength] !== gameSequence[playerLength]) {
@@ -204,11 +205,11 @@ function validate() {
                 $(".counter-text").text(rounds < 10 ? "0" + rounds : rounds);
             }, 1000);
             setTimeout(wrongMove, 500);
-            setTimeout(play, 1000);
+            setTimeout(play, 500);
         }
     } else {
         console.log("YAY!");
-        if (playerSequence.join("") === gameSequence.join("")) {
+        if (playerSequence.length === gameSequence.length) {
             simonTurn = gameSequence.length;
 
             if (simonTurn === 3) {
