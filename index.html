@@ -11,9 +11,9 @@
 
 <body>
     <!-- Inspiration on how to structure Simon Game Console in HTML below: https://codepen.io/BenLBlood/pen/LGLEoJ?editors=1000 -->
-    <div class="container-fluid text-center">
+    <div class="text-center">
         <!-- Outer Console -->
-        <div class="row simon-game">
+        <div class="row no-gutters simon-game">
             <!-- Buttons -->
             <div class="square-buttons green" id="green"></div>
             <div class="square-buttons red" id="red"></div>
@@ -44,13 +44,30 @@
         <!-- End Inner Console Controls-->
         </div>
     <!-- End Outer Console-->
-
     </div>
-    
+
+<div class="container-fluid text-center rules">
+        <div class="row no-gutters mt-5">
+            <div class="col">
+                <h1>HOW TO PLAY</h1>
+            </div>
+        </div>
+<div class="row">
+    <div class="col">
+           <ul class="list-inline">
+    <li> Toggle on/off button to activate game.</li>
+    <li> Press Start Button to begin in normal mode. You get unlimited amount of tries to remember correctly.</li>
+    <li> Strict Mode means if you fail to remember sequence correctly, you start again from round 1.</li>
+    <li> You win the game once you reach round 20!</li>
+    </ul>
+                <h2><em>GOOD LUCK!</em></h1>
+            </div>
+</div>
+</div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
 
