@@ -22,7 +22,8 @@ The reason I chose this for my project was to challenge my skills in JavaScript 
 game. 
 
 <h2>UX</h2>
-As this is a web based inspired version of the Simon game, the intended audience is for anyone with access to a desktop or mobile device, who wants to test their memory in a simple way.
+As this is a web based inspired version of the Simon game, the intended audience is for anyone with access to a desktop or mobile device, who wants to 
+test their memory in a fun, interactive and simple way.
 
 The user interface is clean and minimalistic, to make the user feel less overwhelmed with the aesthetic. 
 The functionality is simple rules, which means 
