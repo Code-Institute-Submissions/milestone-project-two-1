@@ -47,3 +47,18 @@ After mapping out the user stories, I then started to ponder on the design aspec
 
 <h4><a href="https://drive.google.com/file/d/1i22JjQYc-K51kR1nxjQ1pgi85ghbFxeW/view?usp=sharing">One</a>, <a href="https://drive.google.com/file/d/1_JXQ_o8ZOlIt_1hneROhLZnfi0bVlyXA/view?usp=sharing">Two</a> & <a href="https://drive.google.com/file/d/1Dj52qeZAGa0W6Qnj1bHydqITQG-GCPzI/view?usp=sharing">Three</a>.</h4>
 
+<h2>Features</h2>
+
+<h4>Existing Features</h4>
+Feature 1 - The Game Buttons. The four primary colours indicate the buttons that will light up, based the Game Sequence.
+Feature 2 - Game Console - the controls displayed on this board.
+Feature 3 - Simom Header - indicates the name of the game.
+Feature 4 - Start Button - Pressed to start the round once toggle switch is pressed (see feature 7).
+Feature 5 - Counter - Displays the rounds, and prompts when user presses wrong button or wins after 20 rounds.
+Feature 6 - Strict Button - press when you want to play the game in a harder mode. Meaning, if you fail to correctly press a button, you automatically restart at round 01.
+Feature 7 - Toggle on/off switch - to turn game on or off.
+Feature 8 - Sounds - sounds played correspond with the game sequence when each button lights up.
+
+<h4>Features to be Implemented</h4>
+Possibly in the future, I will add different modes - easy & hard to accompany the strict mode. 
+
