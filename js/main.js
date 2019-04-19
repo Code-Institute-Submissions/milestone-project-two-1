@@ -1,12 +1,12 @@
 /* global $ */
 $(function() {
-    
     /* Simple Version of Simon Game
     -- Toggle on/off button to activate game.
-    -- Press Start Button to begin game sequence in normal mode. Unlimited tries if fail to remember game sequence correctly.
-    -- Strict Mode means you start from round 1 if you fail to remember game sequence correctly.
+    -- Press Start Button to begin game sequence in normal mode.
+    -- Unlimited tries if fail to remember game sequence correctly.
+    -- Strict Mode means you start from round 1 if you fail sequence.
     -- Player wins when reach round 20. */
-    
+
 // CONSOLE GAME PIECES
 var gameSequence = [], // order of buttons clicked by game
     playerSequence = [], // buttons clicked by player
@@ -97,7 +97,7 @@ playerButton = false;
 }
 
 // Create Game Sequence
-    // Create Random numbers from 1-4. 
+    // Create Random numbers from 1-4.
 function press() {
     gameSequence.push(colorButtons[Math.floor(Math.random() * 4)]);
     play();
@@ -178,21 +178,20 @@ function win() {
     setTimeout(function() {
         sounds.win.play();
         rounds = 0;
-        $(".counter-text").text("YAY!").fadeOut("slow").fadeIn("slow").fadeOut("slow").fadeIn("slow"); 
+        $(".counter-text").text("YAY!").fadeOut("slow").fadeIn("slow").fadeOut("slow").fadeIn("slow");
         $(".square-buttons").fadeOut("slow").fadeIn("slow").fadeOut("slow").fadeIn("slow");
-    }, 1000); 
+    }, 1000);
     // game will turn off once player wins. to restart, toggle on button.
     return setTimeout(function() {
         playerSequence = [];
         gameSequence = [];
                 console.clear(); //turn game off once player wins.
-            $(".simon-switch").removeClass("off");    
+            $(".simon-switch").removeClass("off");
             $(".simon-switch-toggle").removeClass("turnon");
             $(".counter-text").removeClass("turn");
             $(".strict-button").removeClass("light-up");
             $(".start-button").removeClass("on");
     }, 5000); // delay before game turns off
-    
 }
 
 // Validate Game Sequence against Player Sequence
@@ -225,7 +224,6 @@ function validate() {
 
             if (simonTurn === 20) {
                 return win();
-                
             } else {
                 playerSequence = [];
                 press();
