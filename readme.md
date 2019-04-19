@@ -62,3 +62,9 @@ Feature 8 - Sounds - sounds played correspond with the game sequence when each b
 <h4>Features to be Implemented</h4>
 Possibly in the future, I will add different modes - easy & hard to accompany the strict mode. 
 
+<h2>Technologies Used</h2>
+
+- <b><a href="https://getbootstrap.com/">Bootstrap 4.3.1</a></b> - used for grid system
+- <b><a href="https://jquery.com/">JQuery 3.4.0</a></b> - used for DOM Traversal and Manipulation
+- <b><a href="https://fontawesome.com/">Font Awesome</a></b> - used for the fonts across the game application
+
