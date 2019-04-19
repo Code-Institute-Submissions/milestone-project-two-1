@@ -28,7 +28,7 @@ The user interface is clean and minimalistic, to make the user feel less overwhe
 
 <h4><a href="https://drive.google.com/file/d/16SQbtiP7gVIah0mgZRUph80ilcTBCP-W/view?usp=sharing" target="_blank">The final product looks like this when in action.</a></h4>
 
-<h4>User Stories</h4>
+<h4>USER STORIES</h4>
 
 To map out of the construct of the game, I needed to establish a series of user stories so that when we imagine an action being performed, a goal is achieved by that action from the user. 
 
@@ -47,7 +47,7 @@ After mapping out the user stories, I then started to ponder on the design aspec
 
 <h4><a href="https://drive.google.com/file/d/1i22JjQYc-K51kR1nxjQ1pgi85ghbFxeW/view?usp=sharing">One</a>, <a href="https://drive.google.com/file/d/1_JXQ_o8ZOlIt_1hneROhLZnfi0bVlyXA/view?usp=sharing">Two</a> & <a href="https://drive.google.com/file/d/1Dj52qeZAGa0W6Qnj1bHydqITQG-GCPzI/view?usp=sharing">Three</a>.</h4>
 
-<h2>Features</h2>
+<h2>FEATURES</h2>
 
 <h4>Existing Features</h4>
 Feature 1 - The Game Buttons. The four primary colours indicate the buttons that will light up, based the Game Sequence.
@@ -62,9 +62,21 @@ Feature 8 - Sounds - sounds played correspond with the game sequence when each b
 <h4>Features to be Implemented</h4>
 Possibly in the future, I will add different modes - easy & hard to accompany the strict mode. 
 
-<h2>Technologies Used</h2>
+<h2>TECHNOLOGIES USED</h2>
 
 - <b><a href="https://getbootstrap.com/">Bootstrap 4.3.1</a></b> - used for grid system
 - <b><a href="https://jquery.com/">JQuery 3.4.0</a></b> - used for DOM Traversal and Manipulation
-- <b><a href="https://fontawesome.com/">Font Awesome</a></b> - used for the fonts across the game application
+- <b><a href="https://fonts.google.com/">Google Fonts</a></b> - used for the fonts across the game application
+- <b><a href="https://fonts.google.com/">Google Fonts</a></b>
+
+<h2>TESTING</h2>
+
+- During and throughout the build, the overall website was tested on google chrome using devTools, and testing responsiveness using the device toolbar.
+- Tested responsiveness by resizing the window everytime I implemented a new piece of code.
+AND also tested it physically viewing it on mobile, tablet, mac and windows laptop, windows desktop, and different browsers (firefox, safari, google chrome, opera)
+- The jQuery code was tested in the early stages of the build using Jasmine. Throughout the build, tested the code using console of devTools.
+- When adding the javascript code, there was continuous testing of the button elements. CSS & HTML was also tested alongside the JS code, due to it referencing elements of CSS & HTML.
+- Checked button sizes so they were responsive and large enough to be clicked in mobile view.
+- Ensuring header was resized when viewing on smaller screens (aka mobile) and amending padding-bottom to account for navbar covering half the image when viewing on a smaller screen.
+- Validated HTML code via <a href="https://validator.w3.org/">Validator.org</a>, CSS via <a href="https://jigsaw.w3.org/css-validator/">Jigsaw.org</a> and jQuery via <a href="https://www.jslint.com/">JSLint.com</a>
 
