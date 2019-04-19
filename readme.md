@@ -63,15 +63,6 @@ Feature 8 - Sounds - sounds played correspond with the game sequence when each b
 Possibly in the future, I will add different modes - easy & hard to accompany the strict mode. 
 
 <h2>TECHNOLOGIES USED</h2>
-<<<<<<< HEAD
-
-- <b><a href="https://getbootstrap.com/">Bootstrap 4.3.1</a></b> - used for grid system
-- <b><a href="https://jquery.com/">JQuery 3.4.0</a></b> - used for DOM Traversal and Manipulation
-- <b><a href="https://fonts.google.com/">Google Fonts</a></b> - used for the fonts across the game application
-- <b><a href="https://fonts.google.com/">Google Fonts</a></b>
-
-<h2>TESTING</h2>
-=======
 
 - <b><a href="https://getbootstrap.com/">Bootstrap 4.3.1</a></b> - used for grid system
 - <b><a href="https://jquery.com/">JQuery 3.4.0</a></b> - used for DOM Traversal and Manipulation
@@ -88,7 +79,6 @@ AND also tested it physically viewing it on mobile, tablet, mac and windows lapt
 - Checked button sizes so they were responsive and large enough to be clicked in mobile view.
 - Ensuring header was resized when viewing on smaller screens (aka mobile) and amending padding-bottom to account for navbar covering half the image when viewing on a smaller screen.
 - Validated HTML code via <a href="https://validator.w3.org/">Validator.org</a>, CSS via <a href="https://jigsaw.w3.org/css-validator/">Jigsaw.org</a> and jQuery via <a href="https://www.jslint.com/">JSLint.com</a>
->>>>>>> 1f7de16f2c97026622e78292617356e055084dc0
 
 - During and throughout the build, the overall website was tested on google chrome using devTools, and testing responsiveness using the device toolbar.
 - Tested responsiveness by resizing the window everytime I implemented a new piece of code.
