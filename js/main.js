@@ -222,7 +222,7 @@ function validate() {
         if (playerSequence.length === gameSequence.length) {
             simonTurn = gameSequence.length;
 
-            if (simonTurn === 20) {
+            if (simonTurn === 3) {
                 return win();
             } else {
                 playerSequence = [];
