@@ -71,6 +71,7 @@ Possibly in the future, I will add different modes - easy & hard to accompany th
 <h2>TESTING</h2>
 
 <h4>Overall</h4>
+
 - During and throughout the build, the overall website was tested on google chrome using devTools, and testing responsiveness using the device toolbar.
 - Tested responsiveness by resizing the window everytime I implemented a new piece of code.
 AND also tested it physically viewing it on mobile, tablet, mac and windows laptop, windows desktop, and different browsers (firefox, safari, google chrome, opera)
@@ -84,10 +85,11 @@ AND also tested it physically viewing it on mobile, tablet, mac and windows lapt
 
 <h4>Simon Game Testing</h4>
 Made sure the buttons and console was working, by testing each element that would be logical in the steps using the game.
-<b>Toggle Switch</b> - Checked this switch first to ensure that the Start & Counter buttons would activated, and the game would light up button.
-<b>Start Button</b> - Tested Start Button to ensure this switched to a bright green to indicate the game is on.
-<b>Counter</b> - Made sure the counter displayed "--". Then the number of rounds when switch toggled to the on position.
-<b>Strict Button/b> - Made sure to click to light up bright red, and ensure that if player fails, need to restart from round 1 in strict mode.
+
+- <b>Toggle Switch</b> - Checked this switch first to ensure that the Start & Counter buttons would activated, and the game would light up button.
+- <b>Start Button</b> - Tested Start Button to ensure this switched to a bright green to indicate the game is on.
+- <b>Counter</b> - Made sure the counter displayed "--". Then the number of rounds when switch toggled to the on position.
+- <b>Strict Button</b> - Made sure to click to light up bright red, and ensure that if player fails, need to restart from round 1 in strict mode.
 
 Browser Testing - Based on the above, everything appears as it should. Everything works as it should.
 Mobile/Tablet Testing - via Chrome devTools - tested screen sizes via responsive mode, including the following viewport sizes:
