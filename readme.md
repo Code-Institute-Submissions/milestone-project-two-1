@@ -67,6 +67,7 @@ Possibly in the future, I will add different modes - easy & hard to accompany th
 - <b><a href="https://getbootstrap.com/">Bootstrap 4.3.1</a></b> - used for grid system.
 - <b><a href="https://jquery.com/">JQuery 3.4.0</a></b> - used for DOM Traversal and Manipulation.
 - <b><a href="https://fonts.google.com/">Google Fonts</a></b> - used for the fonts across the game application.
+- <b><a href="https://sass-lang.com/">SASS</a></b> - used for the stylesheet.
 
 <h2>TESTING</h2>
 
