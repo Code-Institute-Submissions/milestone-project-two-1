@@ -105,3 +105,16 @@ Mobile/Tablet Testing - via Chrome devTools - tested screen sizes via responsive
 Based on the the screen sizes above, I had to add media queries (as previously mentioned) to try and center the console as much as possible. It wasnt' absolutely perfect, but worked as it should.
 
 <h2>DEPLOYMENT</h2>
+In order to deploy this to GitHub Pages, I first add push my commits to GitHub. The process for this was as follows:
+
+- Opened new terminal
+- Added any files to be commited with command line 'git add .'.
+- Then commited any final changes made with command line 'git commit -m "content here"'.
+- Checked status to ensure file tree was clean with command line 'git status'.
+- Pushed files with command line 'git push 'https://github.com/aleesang/milestone-project-two'.
+- Entered username & password.
+- Changes successfully pushed to remote repository, created in the beginning of the project.
+
+Then on the page where I view my code, and insights, there is a settings tab. I clicked into that link, an scrolled down to the section titled GitHub Pages, in which I then published my page.
+
+Deployment was successful via GitHub Pages. <a href="https://aleesang.github.io/milestone-project-two/"> View here for demo. </a>
