@@ -32,7 +32,7 @@ var gameSequence = [], // order of buttons clicked by game
             playerSequence = [];
             $(".counter-text").text("--");
             rounds = 0;
-            console.clear(); // reset all active buttons
+            console.log(); // reset all active buttons
             $(".simon-switch-toggle").removeClass("turnon");
             $(".counter-text").removeClass("turn");
             $(".strict-button").removeClass("light-up");
@@ -47,7 +47,7 @@ var gameSequence = [], // order of buttons clicked by game
             $(".start-button").addClass("on");
         }
         else {
-            console.clear();
+            console.log("");
             $(".start-button").removeClass("on");
         }
     });
@@ -66,7 +66,7 @@ var gameSequence = [], // order of buttons clicked by game
     });
 
 // Sound Effects - Audio files found here: https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-a-simon-game & freesound.org
-var sounds = {
+var sounds =  {
     green: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
     red: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"),
     yellow: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"),
@@ -117,7 +117,7 @@ function steps(activate) {
 
 // Displays Rounds in Counter
 function counting() {
-    rounds++;
+    rounds += 1;
     $(".counter-text").text(rounds < 10 ? "0" + rounds : rounds); // If number less than 10, display in the form of 03, instead of 3, as an example
 }
 
@@ -135,7 +135,7 @@ function play() {
         if (i < simonTurn) {
             playerFalse();
             steps(i);
-            i++;
+            i += 1;
             setTimeout(loop, interval);
         } else {
             console.log(i);
@@ -185,7 +185,7 @@ function win() {
     return setTimeout(function() {
         playerSequence = [];
         gameSequence = [];
-                console.clear(); //turn game off once player wins.
+                console.log(""); //turn game off once player wins.
             $(".simon-switch").removeClass("off");
             $(".simon-switch-toggle").removeClass("turnon");
             $(".counter-text").removeClass("turn");

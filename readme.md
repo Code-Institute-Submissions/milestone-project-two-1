@@ -67,16 +67,39 @@ Possibly in the future, I will add different modes - easy & hard to accompany th
 - <b><a href="https://getbootstrap.com/">Bootstrap 4.3.1</a></b> - used for grid system.
 - <b><a href="https://jquery.com/">JQuery 3.4.0</a></b> - used for DOM Traversal and Manipulation.
 - <b><a href="https://fonts.google.com/">Google Fonts</a></b> - used for the fonts across the game application.
-- <b><a href="https://fonts.google.com/">Google Fonts</a></b>.
 
 <h2>TESTING</h2>
 
+<h4>Overall</h4>
 - During and throughout the build, the overall website was tested on google chrome using devTools, and testing responsiveness using the device toolbar.
 - Tested responsiveness by resizing the window everytime I implemented a new piece of code.
 AND also tested it physically viewing it on mobile, tablet, mac and windows laptop, windows desktop, and different browsers (firefox, safari, google chrome, opera)
-- The jQuery code was tested in the early stages of the build using Jasmine. Throughout the build, tested the code using console of devTools.
+- The jQuery code was tested in the early stages of the build using Jasmine. Throughout the build, tested the code using console of devTools to ensure no errors or high logs were present.
 - When adding the javascript code, there was continuous testing of the button elements. CSS & HTML was also tested alongside the JS code, due to it referencing elements of CSS & HTML.
+- Added media queries to try resolve mobile and tablet views as it wasn't being responsive when scaled down to smaller screens. Added CSS code to center console as much as possible on smaller screens.
 - Checked button sizes so they were responsive and large enough to be clicked in mobile view.
-- Ensuring header was resized when viewing on smaller screens (aka mobile) and amending padding-bottom to account for navbar covering half the image when viewing on a smaller screen.
+- Ensuring header was resized when viewing on smaller screens and amending margin-bottom for console as there was a huge gap between the text for the rules and the game console.
 - Validated HTML code via <a href="https://validator.w3.org/">Validator.org</a>, CSS via <a href="https://jigsaw.w3.org/css-validator/">Jigsaw.org</a> and jQuery via <a href="https://www.jslint.com/">JSLint.com</a>
+- When testing the code to make sure there were no errors via jquery, JSLint showed 8 warnings which all refered to lines of code that had more than 80 characters in length. When cross checking with <a href="https://jshint.com/">JSHint</a>, it showed no errors or warnings.
 
+<h4>Simon Game Testing</h4>
+Made sure the buttons and console was working, by testing each element that would be logical in the steps using the game.
+<b>Toggle Switch</b> - Checked this switch first to ensure that the Start & Counter buttons would activated, and the game would light up button.
+<b>Start Button</b> - Tested Start Button to ensure this switched to a bright green to indicate the game is on.
+<b>Counter/b> - Made sure the counter displayed "--". Then the number of rounds when switch toggled to the on position.
+<b>Strict Button/b> - Made sure to click to light up bright red, and ensure that if player fails, need to restart from round 1 in strict mode.
+
+Browser Testing - Based on the above, everything appears as it should. Everything works as it should.
+Mobile/Tablet Testing - via Chrome devTools - tested screen sizes via responsive mode, including the following viewport sizes:
+- Samsung Galaxy s9+ (380 x 740)
+- iPad Mini (768 x 1024)
+- iPad (768 x 1024)
+- iPad Pro (1024 x 1366)
+- iPhone X (375 x 812)
+- iPhone 6/7/8/Plus (414 x 736)
+- Pixel 2 (411 x 823)
+- Pixel 2 XL (411 x 731)
+
+Based on the the screen sizes above, I had to add media queries (as previously mentioned) to try and center the console as much as possible. It wasnt' absolutely perfect, but worked as it should.
+
+<h2>DEPLOYMENT</h2>
