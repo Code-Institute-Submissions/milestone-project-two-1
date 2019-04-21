@@ -105,7 +105,7 @@ Mobile/Tablet Testing - via Chrome devTools - tested screen sizes via responsive
 Based on the the screen sizes above, I had to add media queries (as previously mentioned) to try and center the console as much as possible. It wasnt' absolutely perfect, but worked as it should.
 
 <h2>DEPLOYMENT</h2>
-In order to deploy this to GitHub Pages, I first add push my commits to GitHub. The process for this was as follows:
+In order to deploy this to GitHub Pages, I first pushed my commits to GitHub. The process for this was as follows:
 
 - Opened new terminal
 - Added any files to be commited with command line 'git add .'.
@@ -118,3 +118,22 @@ In order to deploy this to GitHub Pages, I first add push my commits to GitHub. 
 Then on the page where I view my code, and insights, there is a settings tab. I clicked into that link, an scrolled down to the section titled GitHub Pages, in which I then published my page.
 
 Deployment was successful via GitHub Pages. <a href="https://aleesang.github.io/milestone-project-two/"> View here for demo. </a>
+
+<h2>CREDITS</h2>
+
+References for the different parts of the game are listed as follows:
+
+<h4>HTML</h4>
+
+- Inspiration for how HTML code was structured -- https://codepen.io/BenLBlood/pen/LGLEoJ?editors=1000
+
+<h4>CSS</h4>
+
+- Scaling for mobile -- https://codepen.io/Em-Ant/pen/QbRyqqv (line 249 CSS code)
+- Centering on smaller screens -- https://www.lyonscg.com/2016/07/14/centering-elements-scss
+
+<h4>JS</h4>
+
+- Audio Files -- https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-a-simon-game & https://freesound.org
+- Animation for game flashing after winning 20 rounds -- https://www.w3schools.com/jquery/eff_fadeout.asp
+- Inspiration for overall code structure (not all, but pieces of how to structure the code) -- https://github.com/imtoobose/Simon-Game/blob/master/SimonScript.js
