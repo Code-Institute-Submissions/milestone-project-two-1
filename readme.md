@@ -124,6 +124,10 @@ Deployment was successful via GitHub Pages. <a href="https://aleesang.github.io/
 
 References for the different parts of the game are listed as follows:
 
+<h4>Game Console</h4>
+
+- Inspiration for the buttons and layout of console -- https://codepen.io/freeCodeCamp/pen/obYBjE & https://arecvlohe.github.io/purescript-simon-game/
+
 <h4>HTML</h4>
 
 - Inspiration for how HTML code was structured -- https://codepen.io/BenLBlood/pen/LGLEoJ?editors=1000
