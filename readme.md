@@ -86,7 +86,7 @@ AND also tested it physically viewing it on mobile, tablet, mac and windows lapt
 Made sure the buttons and console was working, by testing each element that would be logical in the steps using the game.
 <b>Toggle Switch</b> - Checked this switch first to ensure that the Start & Counter buttons would activated, and the game would light up button.
 <b>Start Button</b> - Tested Start Button to ensure this switched to a bright green to indicate the game is on.
-<b>Counter/b> - Made sure the counter displayed "--". Then the number of rounds when switch toggled to the on position.
+<b>Counter</b> - Made sure the counter displayed "--". Then the number of rounds when switch toggled to the on position.
 <b>Strict Button/b> - Made sure to click to light up bright red, and ensure that if player fails, need to restart from round 1 in strict mode.
 
 Browser Testing - Based on the above, everything appears as it should. Everything works as it should.
