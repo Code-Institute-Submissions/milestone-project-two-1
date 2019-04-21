@@ -76,7 +76,7 @@ Possibly in the future, I will add different modes - easy & hard to accompany th
 - During and throughout the build, the overall website was tested on google chrome using devTools, and testing responsiveness using the device toolbar.
 - Tested responsiveness by resizing the window everytime I implemented a new piece of code.
 AND also tested it physically viewing it on mobile, tablet, mac and windows laptop, windows desktop, and different browsers (firefox, safari, google chrome, opera)
-- The jQuery code was tested in the early stages of the build using Jasmine. Throughout the build, tested the code using console of devTools to ensure no errors or high logs were present.
+- The jQuery code was tested in the early stages of the build using <a href="https://jasmine.github.io/">Jasmine</a>. Throughout the build, tested the code using console of devTools to ensure no errors or high logs were present.
 - When adding the javascript code, there was continuous testing of the button elements. CSS & HTML was also tested alongside the JS code, due to it referencing elements of CSS & HTML.
 - Added media queries to try resolve mobile and tablet views as it wasn't being responsive when scaled down to smaller screens. Added CSS code to center console as much as possible on smaller screens.
 - Checked button sizes so they were responsive and large enough to be clicked in mobile view.
